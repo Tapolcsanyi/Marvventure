@@ -1,0 +1,16 @@
+C:\Users\IceIk\workspace\Marventure\bin\Debug\net5.0\Marventure.exe
+C:\Users\IceIk\workspace\Marventure\bin\Debug\net5.0\Marventure.deps.json
+C:\Users\IceIk\workspace\Marventure\bin\Debug\net5.0\Marventure.runtimeconfig.json
+C:\Users\IceIk\workspace\Marventure\bin\Debug\net5.0\Marventure.runtimeconfig.dev.json
+C:\Users\IceIk\workspace\Marventure\bin\Debug\net5.0\Marventure.dll
+C:\Users\IceIk\workspace\Marventure\bin\Debug\net5.0\ref\Marventure.dll
+C:\Users\IceIk\workspace\Marventure\bin\Debug\net5.0\Marventure.pdb
+C:\Users\IceIk\workspace\Marventure\obj\Debug\net5.0\Marventure.csproj.AssemblyReference.cache
+C:\Users\IceIk\workspace\Marventure\obj\Debug\net5.0\Marventure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IceIk\workspace\Marventure\obj\Debug\net5.0\Marventure.AssemblyInfoInputs.cache
+C:\Users\IceIk\workspace\Marventure\obj\Debug\net5.0\Marventure.AssemblyInfo.cs
+C:\Users\IceIk\workspace\Marventure\obj\Debug\net5.0\Marventure.csproj.CoreCompileInputs.cache
+C:\Users\IceIk\workspace\Marventure\obj\Debug\net5.0\Marventure.dll
+C:\Users\IceIk\workspace\Marventure\obj\Debug\net5.0\ref\Marventure.dll
+C:\Users\IceIk\workspace\Marventure\obj\Debug\net5.0\Marventure.pdb
+C:\Users\IceIk\workspace\Marventure\obj\Debug\net5.0\Marventure.genruntimeconfig.cache
