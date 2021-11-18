@@ -9,6 +9,11 @@ namespace Marventure
     {
         public static bool eldritch = false;
         public static bool birdAlive = true;
+        public static bool gotCD = false;
+        public static bool hasLadder = false;
+        public static bool hasFruit = false;
+        public static bool hasAxe = false;
+        public static bool hasWood = false;
 
         static void Main(string[] args) 
         {
@@ -65,6 +70,15 @@ namespace Marventure
                 case "stare into the sun":
                 case "stare":
                 {
+                    if (eldritch == true)
+                {
+                    Console.WriteLine("What sun?");
+                    eldritch = true;
+                    Console.ReadLine();
+                    Console.Clear();
+                    first();
+                    break;
+                } else {
                     Console.WriteLine("Marv stares into the Sun.");
                     Console.WriteLine("The Eldritch Horrors he sees are terrifying, and he is forever a changed man.");
                     Console.WriteLine("");
@@ -74,6 +88,7 @@ namespace Marventure
                     Console.Clear();
                     first();
                     break;
+                }
                 }
                 case "2":
                 case "build a sand castle":
@@ -156,6 +171,7 @@ namespace Marventure
                     Console.WriteLine("Marv opens the chest to discover it is full of CDs. Upon listening to said CDs, he is greeted with sounds that are less than preferable.");
                     Console.WriteLine("");
                     Console.WriteLine("He listens to the CDs all night.");
+                    gotCD = true;
                     Console.ReadLine();
                     Console.Clear();
                     second();
@@ -283,6 +299,7 @@ namespace Marventure
                     Console.WriteLine("");
                     Console.WriteLine("Yikes. Itchy trigger finger, huh? Guess he doesn't like fingers in his... anyway");
                     Console.WriteLine("Probably keep the CDs to yourself, hooligan.");
+                    gotCD = false;
                     Console.ReadLine();
                     Console.Clear();
                     fourth();
@@ -343,6 +360,13 @@ namespace Marventure
                 case "do nothing":
                 case "nothing":
                 {
+                    Console.WriteLine("Marvin procceeds to do nothing.");
+                    Console.ReadLine();
+                    Console.WriteLine("Absolutely nothing.");
+                    Console.ReadLine();
+                    Console.WriteLine("...");
+                    Console.ReadLine();
+                    Console.WriteLine("Ok that's enough nothing.");
                     Console.ReadLine();
                     Console.Clear();
                     fourth();
@@ -351,6 +375,11 @@ namespace Marventure
                 case "3":
                 case "grab the gun":
                 {
+                    Console.WriteLine("It seems when you were tickkling Duke, he dropped a gun from... somewhere.");
+                    Console.WriteLine("You reach to pick it up.");
+                    Console.WriteLine("");
+                    Console.WriteLine("Woah there partner. Duke raises his guns to show he's not messing around. At least, that's what you assume.");
+                    Console.WriteLine("You decide maybe it's best to not mess with Duke's gun.");
                     Console.ReadLine();
                     Console.Clear();
                     fourth();
@@ -359,6 +388,8 @@ namespace Marventure
                 case "4":
                 case "ask duke who he is":
                 {
+                    Console.WriteLine("Marv begins to ask Duke who he is, but then remembers exactly who is, and realizes what a stupid question that would be.");
+                    Console.WriteLine("Why even suggest that?");
                     Console.ReadLine();
                     Console.Clear();
                     fourth();
@@ -366,6 +397,228 @@ namespace Marventure
                 }
             }
         }
+
+        public static void island()
+        {
+            string choice;
+
+            Console.Clear();
+
+            Console.WriteLine("Marvin needs to get off of this island now. He can't stay here. There is no food, and he is surrounded by salt water.");
+            Console.WriteLine("Realistically, he couldn't be here for more than a few days before he dies. It's time to find a way off this island");
+            Console.WriteLine("");
+            Console.WriteLine("What will Marvin do?");
+            Console.WriteLine("");
+            Console.WriteLine("1. Go to the tree");
+            Console.WriteLine("2. Go to the Shore");
+            Console.WriteLine("3. Go to the chest");
+            Console.WriteLine("4. Go to Duke");
+            Console.WriteLine("");
+            Console.WriteLine("Choice:");
+            choice = Console.ReadLine().ToLower();
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                case "go to the tree":
+                case "tree":
+                {
+                    Console.WriteLine("Marvin makes his way to the tree.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    tree();
+                    break;
+                }
+                case "2":
+                case "go to the shore":
+                case "shore":
+                {
+                    Console.WriteLine("Marvin makes his way to the shore.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    shore();
+                    break;
+                }
+                case "3":
+                case "go to the chest":
+                case "chest":
+                {
+                    Console.WriteLine("Marvin makes his way to the chest.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    chest();
+                    break;
+                }
+                case "4":
+                case "go to duke":
+                case "duke":
+                {
+                    Console.WriteLine("Marvin makes his way to Duke.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    duke();
+                    break;
+                }
+            }
+        }
+
+        public static void tree()
+        {
+            string choice;
+
+            Console.Clear();
+
+            Console.WriteLine("Marvin stares at the tree. It remains just a tree.");
+            Console.WriteLine("Big leaves hang from the top, creating a spot of shade.");
+            Console.WriteLine("Marv sees some fruit hanging pretty high up on the tree. He realizes his hunger once he sees the fruit.");
+            Console.WriteLine("");
+            Console.WriteLine("What will Marvin do?");
+            Console.WriteLine("");
+            Console.WriteLine("1. Try to get the fruit");
+            Console.WriteLine("2. Try to cut the tree down");
+            Console.WriteLine("3. Hide in the tree");
+            Console.WriteLine("4. Worship the tree");
+            Console.WriteLine("");
+            Console.WriteLine("Choice:");
+            choice = Console.ReadLine().ToLower();
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                case "try to get the fruit":
+                case "fruit":
+                {
+                    if (hasLadder == true)
+                    {
+                        Console.WriteLine("Marvin grabs a fruit.");
+                        hasFruit = true;
+                        Console.ReadLine();
+                        Console.Clear();
+                        tree();
+                        break;
+                    } else if (hasFruit == true) {
+                        Console.WriteLine("Marvin already has the fruit.");
+                        Console.ReadLine();
+                        Console.Clear();
+                        tree();
+                        break;
+                    } else {
+                        Console.WriteLine("Marvin stares at the fruit, his hunger growing with each second.");
+                        Console.WriteLine("He decides it's best not to look at it, out of sight out of mind.");
+                        Console.ReadLine();
+                        Console.Clear();
+                        tree();
+                        break;
+                    }
+                }
+                case "2":
+                case "try to cut the tree down":
+                {
+                    if (hasAxe == true)
+                    {
+                        Console.WriteLine("Marvin cuts down the tree and obtains a multitude of wood and leaves.");
+                        hasWood = true;
+                        Console.ReadLine();
+                        Console.Clear();
+                        tree();
+                        break;
+                    } else if (hasAxe == true) {
+                        Console.WriteLine("Marvin already cut down the tree.");
+                        Console.ReadLine();
+                        Console.Clear();
+                        tree();
+                        break;
+                    } else {
+                        Console.WriteLine("Marvin Has nothing to cut the tree down with.");
+                        Console.WriteLine("He ponders punching it until it gives him peices of wood, but what would Marv do with it?.");
+                        Console.WriteLine("All he'd have are Woodchips and broken knuckles.");
+                        Console.ReadLine();
+                        Console.Clear();
+                        tree();
+                        break;
+                    }
+                }
+                case "3":
+                case "hide in the tree":
+                {
+                    Console.WriteLine("What does this even mean.");
+                    Console.WriteLine("Honestly, sometimes you say some stupid stuff.");
+                    Console.WriteLine("Marvin will procceed to avoid doing that.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    tree();
+                    break;
+                }
+                case "4":
+                case "worship the tree":
+                case "worship":
+                {
+                    Console.WriteLine("Marvin kneels down next to the tree.");
+                    Console.WriteLine("He begins to worship, silently at first, but growing louder..");
+                    Console.WriteLine("The worshipping goes on for days.");
+                    Console.WriteLine("");
+                    Console.WriteLine("Eventually, he realizes he is no longer on the island.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    heaven();
+                    break;
+                }
+            }  
+        }
+
+        public static void shore()
+        {
+            string choice;
+
+            Console.Clear();
+
+            Console.WriteLine("Marvin stares at the tree. It remains just a tree.");
+            Console.WriteLine("Big leaves hang from the top, creating a spot of shade.");
+            Console.WriteLine("Marv sees some fruit hanging pretty high up on the tree. He realizes his hunger once he sees the fruit.");
+            Console.WriteLine("");
+            Console.WriteLine("What will Marvin do?");
+        }
+
+        public static void chest()
+        {
+            string choice;
+
+            Console.Clear();
+
+            Console.WriteLine("Marvin stares at the tree. It remains just a tree.");
+            Console.WriteLine("Big leaves hang from the top, creating a spot of shade.");
+            Console.WriteLine("Marv sees some fruit hanging pretty high up on the tree. He realizes his hunger once he sees the fruit.");
+            Console.WriteLine("");
+            Console.WriteLine("What will Marvin do?");
+        }
+
+        public static void duke()
+        {
+            string choice;
+
+            Console.Clear();
+
+            Console.WriteLine("Marvin stares at the tree. It remains just a tree.");
+            Console.WriteLine("Big leaves hang from the top, creating a spot of shade.");
+            Console.WriteLine("Marv sees some fruit hanging pretty high up on the tree. He realizes his hunger once he sees the fruit.");
+            Console.WriteLine("");
+            Console.WriteLine("What will Marvin do?");
+        }
+        public static void heaven()
+        {
+            string choice;
+
+            Console.Clear();
+
+            Console.WriteLine("Marvin stares at the tree. It remains just a tree.");
+            Console.WriteLine("Big leaves hang from the top, creating a spot of shade.");
+            Console.WriteLine("Marv sees some fruit hanging pretty high up on the tree. He realizes his hunger once he sees the fruit.");
+            Console.WriteLine("");
+            Console.WriteLine("What will Marvin do?");
+        }
+
         public static void gameOver()
         {
             Console.Clear();
