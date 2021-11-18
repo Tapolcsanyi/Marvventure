@@ -17,6 +17,9 @@ namespace Marventure
         public static bool hasRocks = false;
         public static bool hasBoat = false;
         public static bool sandCastle = false;
+        public static bool hasMagic = false;
+        public static int digCount = 0;
+        public static int castleBuilt = 0;
 
         static void Main(string[] args) 
         {
@@ -96,15 +99,27 @@ namespace Marventure
                 case "2":
                 case "build a sand castle":
                 {
+                    if (castleBuilt >= 3)
+                    {
+                    Console.WriteLine("Marv has built enough sand castles for today.");
+                    sandCastle = true;
+                    castleBuilt = castleBuilt + 1;
+                    Console.ReadLine();
+                    Console.Clear();
+                    first();
+                    break;
+                    } else {
                     Console.WriteLine("Marv begins his architectural journey.");
                     Console.WriteLine("Who knew such a young man had an impressive inate ability for building grainy structures?");
                     Console.WriteLine("");
                     Console.WriteLine("The sand castle considers itself built.");
                     sandCastle = true;
+                    castleBuilt = castleBuilt + 1;
                     Console.ReadLine();
                     Console.Clear();
                     first();
                     break;
+                    }
                 }
                 case "3":
                 case "kiss the bird":
@@ -298,6 +313,8 @@ namespace Marventure
                 case "show duke your cds":
                 case "show him your cds":
                 {
+                    if (gotCD == true)
+                    {
                     Console.WriteLine("Marv retrieves his favorite CD from the chest and lifts it up to show Duke. Everyone likes this song.");
                     Console.WriteLine("Duke promptly unloads a clip into the CD, obliterating it in your hand.");
                     Console.WriteLine("");
@@ -308,6 +325,14 @@ namespace Marventure
                     Console.Clear();
                     fourth();
                     break;
+                    } else {
+                    Console.WriteLine("What CD?");
+                    gotCD = false;
+                    Console.ReadLine();
+                    Console.Clear();
+                    fourth();
+                    break;
+                    }
                 }
                 case "4":
                 case "tickle duke":
@@ -353,7 +378,8 @@ namespace Marventure
                 {
                     Console.WriteLine("Marv slaps Duke's booty as seductively as possible.");
                     Console.WriteLine("");
-                    Console.WriteLine("Boy oh boy was it possible. Maybe this place should be named Love Island. Impressive");
+                    Console.WriteLine("Boy oh boy was it possible. Maybe this place should be named Love Island.");
+                    Console.WriteLine("Marvin leaves an impressive hand print upon Duke's cheek.");
                     Console.WriteLine("");
                     Console.WriteLine("Duke considers his booty slapped");
                     Console.ReadLine();
@@ -601,7 +627,7 @@ namespace Marventure
 
             Console.Clear();
 
-            Console.WriteLine("Marvin moves over to the shore. He notices a collection of small, sharp rocks just before the shoreline.");
+            Console.WriteLine("Marvin is right by the water. He notices a collection of small, sharp rocks just before the shoreline.");
             Console.WriteLine("In front of him lies a sea so big he cannot see the whole thing.");
             Console.WriteLine("The water looks excruciatingly cold.");
             Console.WriteLine("");
@@ -691,14 +717,112 @@ namespace Marventure
 
             Console.Clear();
 
-            Console.WriteLine("Marvin stares at the tree. It remains just a tree.");
-            Console.WriteLine("Big leaves hang from the top, creating a spot of shade.");
-            Console.WriteLine("Marv sees some fruit hanging pretty high up on the tree. He realizes his hunger once he sees the fruit.");
+            Console.WriteLine("Marvin admires the treasure chest.");
+            Console.WriteLine("A seemingly endless supply of CDs pile up from the bottom.");
+            Console.WriteLine("Who put these in here?.");
+            Console.WriteLine("");
+            Console.WriteLine("What will Marvin do?");
+            Console.WriteLine("");
+            Console.WriteLine("1. Grab a CD");
+            Console.WriteLine("2. Dig through the chest");
+            Console.WriteLine("3. Use the chest as a boat");
+            Console.WriteLine("4. Ignore the chest");
+            Console.WriteLine("");
+            Console.WriteLine("Choice:");
+            choice = Console.ReadLine().ToLower();
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                case "grab a cd":
+                case "grab cd":
+                case "take cd":
+                case "take a cd":
+                {
+                    Console.WriteLine("Marvin grabs a CD.");
+                    Console.WriteLine("Who knows when he might need one of these?");
+                    gotCD = true;
+                    Console.ReadLine();
+                    Console.Clear();
+                    chest();
+                    break;
+                }
+                case "2":
+                case "dig through the chest":
+                case "dig":
+                {
+                    if ( digCount >= 3)
+                    {
+                    Console.WriteLine("Marvin finds something peculiar at the the bottom of the CDs.");
+                    Console.WriteLine("");
+                    Console.WriteLine("It's more CDs.");
+                    digCount = digCount + 1;
+                    Console.ReadLine();
+                    Console.Clear();
+                    chest();
+                    break;
+                    } else {
+                    Console.WriteLine("Marvin begins to dig through the chest of CDs.");
+                    Console.WriteLine("");
+                    Console.WriteLine("There are more CDs.");
+                    digCount = digCount + 1;
+                    Console.ReadLine();
+                    Console.Clear();
+                    chest();
+                    break;
+                    }
+                }
+                case "3":
+                case "use the chest as a boat":
+                case "use the chest as boat":
+                {
+                    if (hasWood == true)
+                    {
+                    Console.WriteLine("BOAT!");
+                    hasBoat = true;
+                    Console.ReadLine();
+                    Console.Clear();
+                    boat();
+                    break;
+                    } else {
+                    Console.WriteLine("How would that work. It's full of CDs?");
+                    Console.WriteLine("Its too small and the lid is making it top heavy.");
+                    Console.WriteLine("");
+                    Console.WriteLine("Maybe if Marv had some wood he could fashion the chest into a little boat.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    island();
+                    break;
+                    }
+                }
+                case "4":
+                case "ignore the chest":
+                case "ignore":
+                {
+                    Console.WriteLine("Marvin disregards the chest entirely.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    island();
+                    break;
+                }
+            }
+        }
+
+        public static void duke()
+        {
+            string choice;
+
+            Console.Clear();
+
+            Console.WriteLine("Marvin likes Duke. Duke doesn't exactly like Marvin.");
+            Console.WriteLine("Duke is still gripping his dual weapons.");
+            Console.WriteLine("Marv is not sure what Duke is doing there, but he's glad that he is.");
             Console.WriteLine("");
             Console.WriteLine("What will Marvin do?");
         }
 
-        public static void duke()
+        public static void heaven()
         {
             string choice;
 
@@ -710,7 +834,8 @@ namespace Marventure
             Console.WriteLine("");
             Console.WriteLine("What will Marvin do?");
         }
-        public static void heaven()
+
+        public static void boat()
         {
             string choice;
 
