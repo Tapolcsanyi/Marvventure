@@ -14,6 +14,9 @@ namespace Marventure
         public static bool hasFruit = false;
         public static bool hasAxe = false;
         public static bool hasWood = false;
+        public static bool hasRocks = false;
+        public static bool hasBoat = false;
+        public static bool sandCastle = false;
 
         static void Main(string[] args) 
         {
@@ -97,6 +100,7 @@ namespace Marventure
                     Console.WriteLine("Who knew such a young man had an impressive inate ability for building grainy structures?");
                     Console.WriteLine("");
                     Console.WriteLine("The sand castle considers itself built.");
+                    sandCastle = true;
                     Console.ReadLine();
                     Console.Clear();
                     first();
@@ -337,6 +341,7 @@ namespace Marventure
             Console.WriteLine("2. Do Nothing");
             Console.WriteLine("3. Grab the gun");
             Console.WriteLine("4. Ask Duke who he is");
+            Console.WriteLine("5. Get on with the game");
             choice = Console.ReadLine().ToLower();
             Console.Clear();
 
@@ -393,6 +398,17 @@ namespace Marventure
                     Console.ReadLine();
                     Console.Clear();
                     fourth();
+                    break;
+                }
+                case "5":
+                case "get on with the game":
+                case "get on with it":
+                {
+                    Console.WriteLine("Marv decides to get on with it.");
+                    Console.WriteLine("He can't stay here forever.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    island();
                     break;
                 }
             }
@@ -479,6 +495,7 @@ namespace Marventure
             Console.WriteLine("2. Try to cut the tree down");
             Console.WriteLine("3. Hide in the tree");
             Console.WriteLine("4. Worship the tree");
+            Console.WriteLine("5. Ignore the tree");
             Console.WriteLine("");
             Console.WriteLine("Choice:");
             choice = Console.ReadLine().ToLower();
@@ -532,8 +549,8 @@ namespace Marventure
                         break;
                     } else {
                         Console.WriteLine("Marvin Has nothing to cut the tree down with.");
-                        Console.WriteLine("He ponders punching it until it gives him peices of wood, but what would Marv do with it?.");
-                        Console.WriteLine("All he'd have are Woodchips and broken knuckles.");
+                        Console.WriteLine("He ponders punching it until it gives him little pieces of wood, but what would Marv do with them?.");
+                        Console.WriteLine("All he'd have are woodchips and broken knuckles.");
                         Console.ReadLine();
                         Console.Clear();
                         tree();
@@ -556,13 +573,23 @@ namespace Marventure
                 case "worship":
                 {
                     Console.WriteLine("Marvin kneels down next to the tree.");
-                    Console.WriteLine("He begins to worship, silently at first, but growing louder..");
+                    Console.WriteLine("He begins to worship the tree with praises and song.");
                     Console.WriteLine("The worshipping goes on for days.");
                     Console.WriteLine("");
                     Console.WriteLine("Eventually, he realizes he is no longer on the island.");
                     Console.ReadLine();
                     Console.Clear();
                     heaven();
+                    break;
+                }
+                case "5":
+                case "ignore the tree":
+                case "ignore":
+                {
+                    Console.WriteLine("Marvin disregards the tree entirely.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    island();
                     break;
                 }
             }  
@@ -574,11 +601,88 @@ namespace Marventure
 
             Console.Clear();
 
-            Console.WriteLine("Marvin stares at the tree. It remains just a tree.");
-            Console.WriteLine("Big leaves hang from the top, creating a spot of shade.");
-            Console.WriteLine("Marv sees some fruit hanging pretty high up on the tree. He realizes his hunger once he sees the fruit.");
+            Console.WriteLine("Marvin moves over to the shore. He notices a collection of small, sharp rocks just before the shoreline.");
+            Console.WriteLine("In front of him lies a sea so big he cannot see the whole thing.");
+            Console.WriteLine("The water looks excruciatingly cold.");
             Console.WriteLine("");
             Console.WriteLine("What will Marvin do?");
+            Console.WriteLine("");
+            Console.WriteLine("1. Pick up some rocks");
+            Console.WriteLine("2. Go for a swim");
+            Console.WriteLine("3. Build a sand castle");
+            Console.WriteLine("4. Ignore the shore");
+            Console.WriteLine("");
+            Console.WriteLine("Choice:");
+            choice = Console.ReadLine().ToLower();
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                case "pick up some rocks":
+                case "pick up rocks":
+                {
+                    if (hasRocks == !true)
+                    {
+                    Console.WriteLine("Marvin bends down and picks up a few sharp rocks.");
+                    Console.WriteLine("What might he need these for?");
+                    Console.WriteLine("");
+                    Console.WriteLine("The rocks consider themselves picked up");
+                    hasRocks = true;
+                    Console.ReadLine();
+                    Console.Clear();
+                    shore();
+                    break;
+                    } else {
+                    Console.WriteLine("Marvin already picked up those rocks.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    shore();
+                    break;
+                    }
+                }
+                case "2":
+                case "go for a swim":
+                case "swim":
+                case "go swim":
+                case "go swimming":
+                {
+                    Console.WriteLine("Marvin finds himself drawn to the salty water.");
+                    Console.WriteLine("Unfortunately, Marv never learned how to swim.");
+                    Console.WriteLine("This does not stop him from dipping his toes in the water.");
+                    Console.WriteLine("");
+                    Console.WriteLine("The water is unpleasantly cold, and he immediatly retracts back onto the warm sand.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    shore();
+                    break;
+                }
+                case "3":
+                case "build a sand castle":
+                case "build a castle":
+                {
+                    Console.WriteLine("Marvin is overtaken by the need to suddenly perform acts of architectural wonder.");
+                    Console.WriteLine("As he grabs wet sand, he builds quite a beautiful home.");
+                    Console.WriteLine("He hopes one day to live in such a nice place.");
+                    Console.WriteLine("");
+                    Console.WriteLine("The sand castle considers itself built.");
+                    sandCastle = true;
+                    Console.ReadLine();
+                    Console.Clear();
+                    shore();
+                    break;
+                }
+                case "4":
+                case "ignore the shore":
+                case "ignore shore":
+                {
+                    Console.WriteLine("Marvin disregards the shore entirely.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    island();
+                    break;
+                }
+            }
         }
 
         public static void chest()
