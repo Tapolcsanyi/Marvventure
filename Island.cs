@@ -321,7 +321,7 @@ namespace Marventure
                     Console.WriteLine("Marvin finds something peculiar at the the bottom of the CDs.");
                     Console.WriteLine("");
                     Console.WriteLine("It's more CDs.");
-                    BoolsList.digCount = BoolsList.digCount + 1;
+                    BoolsList.digCount = BoolsList.digCount - 3;
                     Console.ReadLine();
                     Console.Clear();
                     chest();
