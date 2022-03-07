@@ -11,7 +11,7 @@ namespace Marventure
             Console.Clear();
 
             Console.WriteLine("Marvin needs to get off of this island now. He can't stay here. There is no food, and he is surrounded by salt water.");
-            Console.WriteLine("Realistically, he couldn't be here for more than a few days before he dies. It's time to find a way off this island");
+            Console.WriteLine("Realistically, he couldn't be here for more than a few days before he dies. It's time to find a way off this island.");
             Console.WriteLine("");
             Console.WriteLine("What will Marvin do?");
             Console.WriteLine("");
@@ -19,6 +19,7 @@ namespace Marventure
             Console.WriteLine("2. Go to the Shore");
             Console.WriteLine("3. Go to the chest");
             Console.WriteLine("4. Go to Duke");
+            Console.WriteLine("5. Go to the bird");
             Console.WriteLine("");
             Console.WriteLine("Choice:");
             choice = Console.ReadLine().ToLower();
@@ -64,6 +65,16 @@ namespace Marventure
                     Console.ReadLine();
                     Console.Clear();
                     duke();
+                    break;
+                }
+                case "5":
+                case "go to the bird":
+                case "bird":
+                {
+                    Console.WriteLine("Marvin makes his way to the Bird.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    BirdScene.bird();
                     break;
                 }
             }
@@ -137,6 +148,17 @@ namespace Marventure
                         Console.Clear();
                         tree();
                         break;
+                    } else if (BoolsList.hasStick == false){
+                        Console.WriteLine("Marvin Has nothing to cut the tree down with.");
+                        Console.WriteLine("He ponders punching it until it gives him little pieces of wood, but what would Marv do with them?.");
+                        Console.WriteLine("All he'd have are woodchips and broken knuckles.");
+                        Console.WriteLine("");
+                        Console.WriteLine("Marvin does, however, acquire some sticks from the base of the tree.");
+                        BoolsList.hasStick = true;
+                        Console.ReadLine();
+                        Console.Clear();
+                        tree();
+                        break;
                     } else {
                         Console.WriteLine("Marvin Has nothing to cut the tree down with.");
                         Console.WriteLine("He ponders punching it until it gives him little pieces of wood, but what would Marv do with them?.");
@@ -162,6 +184,8 @@ namespace Marventure
                 case "worship the tree":
                 case "worship":
                 {
+                    if (BoolsList.hasMagic == !true)
+                    {
                     Console.WriteLine("Marvin kneels down next to the tree.");
                     Console.WriteLine("He begins to worship the tree with praises and song.");
                     Console.WriteLine("The worshipping goes on for days.");
@@ -169,8 +193,19 @@ namespace Marventure
                     Console.WriteLine("Eventually, he realizes he is no longer on the island.");
                     Console.ReadLine();
                     Console.Clear();
-                    Program.heaven();
+                    HeavenScene.goddess();
                     break;
+                    } else {
+                    Console.WriteLine("Marvin kneels down next to the tree.");
+                    Console.WriteLine("He begins to worship the tree with praises and song.");
+                    Console.WriteLine("The worshipping goes on for days.");
+                    Console.WriteLine("");
+                    Console.WriteLine("Eventually, he realizes he is no longer on the island.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    HeavenScene.heaven();
+                    break;
+                    }
                 }
                 case "5":
                 case "ignore the tree":
@@ -198,7 +233,7 @@ namespace Marventure
             Console.WriteLine("What will Marvin do?");
             Console.WriteLine("");
             Console.WriteLine("1. Pick up some rocks");
-            Console.WriteLine("2. Go for a swim");
+            Console.WriteLine("2. Drown");
             Console.WriteLine("3. Build a sand castle");
             Console.WriteLine("4. Ignore the shore");
             Console.WriteLine("");
@@ -232,16 +267,16 @@ namespace Marventure
                     }
                 }
                 case "2":
-                case "go for a swim":
+                case "drown":
                 case "swim":
                 case "go swim":
                 case "go swimming":
                 {
-                    Console.WriteLine("Marvin finds himself drawn to the salty water.");
-                    Console.WriteLine("Unfortunately, Marv never learned how to swim.");
-                    Console.WriteLine("This does not stop him from dipping his toes in the water.");
+                    Console.WriteLine("Marvin, what are you thinking?");
+                    Console.WriteLine("Surely the allure of the salty water is not as strong as your will to live, right Marv?");
                     Console.WriteLine("");
-                    Console.WriteLine("The water is unpleasantly cold, and he immediatly retracts back onto the warm sand.");
+                    Console.WriteLine("Marvin ponders this decision for a bit longer than most sane people. Unfortunately, he sees this as a way off the island.");
+                    Console.WriteLine("Marv decides against drowning.");
                     Console.ReadLine();
                     Console.Clear();
                     shore();
@@ -251,16 +286,27 @@ namespace Marventure
                 case "build a sand castle":
                 case "build a castle":
                 {
-                    Console.WriteLine("Marvin is overtaken by the need to suddenly perform acts of architectural wonder.");
-                    Console.WriteLine("As he grabs wet sand, he builds quite a beautiful home.");
-                    Console.WriteLine("He hopes one day to live in such a nice place.");
-                    Console.WriteLine("");
-                    Console.WriteLine("The sand castle considers itself built.");
+                    if (BoolsList.castleBuilt >= 3)
+                    {
+                    Console.WriteLine("Marv has built enough sand castles for today.");
                     BoolsList.sandCastle = true;
+                    BoolsList.castleBuilt = BoolsList.castleBuilt + 1;
                     Console.ReadLine();
                     Console.Clear();
                     shore();
                     break;
+                    } else {
+                    Console.WriteLine("Marv begins his architectural journey.");
+                    Console.WriteLine("Who knew such a young man had an impressive inate ability for building grainy structures?");
+                    Console.WriteLine("");
+                    Console.WriteLine("The sand castle considers itself built.");
+                    BoolsList.sandCastle = true;
+                    BoolsList.castleBuilt = BoolsList.castleBuilt + 1;
+                    Console.ReadLine();
+                    Console.Clear();
+                    shore();
+                    break;
+                    }
                 }
                 case "4":
                 case "ignore the shore":
@@ -347,7 +393,7 @@ namespace Marventure
                     BoolsList.hasBoat = true;
                     Console.ReadLine();
                     Console.Clear();
-                    Program.boat();
+                    BoatScene.boat();
                     break;
                     } else {
                     Console.WriteLine("How would that work. It's full of CDs?");
@@ -356,7 +402,7 @@ namespace Marventure
                     Console.WriteLine("Maybe if Marv had some wood he could fashion the chest into a little boat.");
                     Console.ReadLine();
                     Console.Clear();
-                    island();
+                    chest();
                     break;
                     }
                 }
@@ -384,6 +430,93 @@ namespace Marventure
             Console.WriteLine("Marv is not sure what Duke is doing there, but he's glad that he is.");
             Console.WriteLine("");
             Console.WriteLine("What will Marvin do?");
+            Console.WriteLine("");
+            Console.WriteLine("1. Slap Duke's Booty");
+            Console.WriteLine("2. Grab the gun");
+            Console.WriteLine("3. Give Duke Fruit");
+            Console.WriteLine("4. Ignore Duke");
+            Console.WriteLine("");
+            Console.WriteLine("Choice: ");
+            choice = Console.ReadLine().ToLower();
+            Console.Clear();
+
+            switch (choice)
+            {
+                case "1":
+                case "slap dukes booty":
+                case "slap booty":
+                case "slap duke":
+                {
+                    Console.WriteLine("Marvin slaps Duke's booty as seductively as possible. And boy, was it possible.");
+                    Console.WriteLine("Maybe this place should be named love island.");
+                    Console.WriteLine("");
+                    Console.WriteLine("Duke considers his booty slapped.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    island();
+                    break;
+                }
+                case "2":
+                case "grab the gun":
+                case "grab gun":
+                {
+                    if (BoolsList.dukeHasFruit == true)
+                    {
+                    Console.WriteLine("Distracted by the delectable fruit, Duke completely ignores Marvin bending over to pick up the sidearm.");
+                    Console.WriteLine("");
+                    Console.WriteLine("Equipped with a weapon, Marvin feels incredibly powerful. Be careful with that gun, Marv.");
+                    Console.WriteLine("");
+                    Console.WriteLine("The gun considers itself picked up.");
+                    BoolsList.hasGun = true;
+                    Console.ReadLine();
+                    Console.Clear();
+                    duke();
+                    break;
+                    } else if (BoolsList.hasGun == true) {
+                    Console.WriteLine("Marvin already has the sidearm.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    duke();
+                    break;
+                    } else {
+                    Console.WriteLine("Woah there partner. Duke raises both guns to show that he isn't messing around.");
+                    Console.WriteLine("At least Marv thinks so.");
+                    Console.WriteLine("");
+                    Console.WriteLine("Maybe if Duke was distracted by something, the sidearm would be easier to acquire.");
+                    Console.WriteLine("");
+                    Console.WriteLine("Marvin decides to leave the gun alone for now.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    duke();
+                    break;
+                    }
+                }
+                case "3":
+                case "give duke fruit":
+                case "give fruit":
+                case "fruit":
+                {
+                    Console.WriteLine("Marvin shares his bountiful haul of fruit with Duke.");
+                    Console.WriteLine("Duke doesn't necessarily need it, but he is grateful nonetheless.");
+                    Console.WriteLine("");
+                    Console.WriteLine("The fruit considers itself shared.");
+                    BoolsList.dukeHasFruit = true;
+                    Console.ReadLine();
+                    Console.Clear();
+                    duke();
+                    break;
+                }
+                case "4":
+                case "ignore duke":
+                case "ignore":
+                {
+                    Console.WriteLine("Marvin disregards Duke entirely.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    island();
+                    break;
+                }
+            }
         }
     }
 }

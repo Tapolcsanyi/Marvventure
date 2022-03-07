@@ -10,7 +10,6 @@ namespace Marventure
         static void Main(string[] args) 
         {
             gameTitle();
-            first();
         }
 
         public static void gameTitle()
@@ -47,9 +46,9 @@ namespace Marventure
             Console.WriteLine("Around him are a single tree and a bird. The island is perplexingly small.");
             Console.WriteLine("What will Marvin do?");
             Console.WriteLine("");
-            Console.WriteLine("1. Stare into the Sun");
-            Console.WriteLine("2. Build a Sand Castle");
-            Console.WriteLine("3. Kiss the Bird");
+            Console.WriteLine("1. Stare at the Sun");
+            Console.WriteLine("2. Start a fast food chain");
+            Console.WriteLine("3. Go to the Bird");
             Console.WriteLine("4. Wither");
             Console.WriteLine("");
             Console.WriteLine("Choice: ");
@@ -80,44 +79,45 @@ namespace Marventure
                     Console.Clear();
                     first();
                     break;
-                }
-                }
+                }}
                 case "2":
-                case "build a sand castle":
+                case "start a fast food chain":
+                case "food chain":
+                case "start a chain":
+                case "food":
                 {
-                    if (BoolsList.castleBuilt >= 3)
+                    if (BoolsList.openedChain == false)
                     {
-                    Console.WriteLine("Marv has built enough sand castles for today.");
-                    BoolsList.sandCastle = true;
-                    BoolsList.castleBuilt = BoolsList.castleBuilt + 1;
-                    Console.ReadLine();
                     Console.Clear();
-                    first();
-                    break;
-                    } else {
-                    Console.WriteLine("Marv begins his architectural journey.");
-                    Console.WriteLine("Who knew such a young man had an impressive inate ability for building grainy structures?");
+                    Console.WriteLine("Marvin opens the first establishment in his booming new food chain.");
                     Console.WriteLine("");
-                    Console.WriteLine("The sand castle considers itself built.");
-                    BoolsList.sandCastle = true;
-                    BoolsList.castleBuilt = BoolsList.castleBuilt + 1;
+                    Console.WriteLine("Unfortunately, not many people know of the island restaurant. He Doesn't receive a single customer for 3 days.");
+                    Console.WriteLine("");
+                    Console.WriteLine("Marv is forced to close his doors. Until next time.");
+                    BoolsList.openedChain = true;
                     Console.ReadLine();
                     Console.Clear();
-                    first();
-                    break;
+                    Program.first();
+                    } else {
+                    Console.Clear();
+                    Console.WriteLine("Marvin already tried this. It didn't work out.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    Program.first();
                     }
+                    Console.ReadLine();
+                    Console.Clear();
+                    FoodScene.food();
+                    break;
                 }
                 case "3":
-                case "kiss the bird":
-                case "kiss":
+                case "go to the bird":
+                case "bird":
                 {
-                    Console.WriteLine("Marv turns, setting his sights on a beaky smooch.");
-                    Console.WriteLine("Unfortuneatly, the once visable bird has disappeared. Marv remains smoochless.");
-                    Console.WriteLine("");
-                    Console.WriteLine("A treasure chest has washed up on shore. Perhaps this chest could contain the key to his escape?");
-                    Console.WriteLine("What could be inside?");
+                    Console.WriteLine("Marvin makes his way to the bird.");
                     Console.ReadLine();
-                    SecondScene.second();
+                    Console.Clear();
+                    BirdScene.birdToThird();
                     break;
                 }
                 case "4":
@@ -140,37 +140,12 @@ namespace Marventure
                 }
             }
         }
-        public static void heaven()
-        {
-            string choice;
-
-            Console.Clear();
-
-            Console.WriteLine("Marvin stares at the tree. It remains just a tree.");
-            Console.WriteLine("Big leaves hang from the top, creating a spot of shade.");
-            Console.WriteLine("Marv sees some fruit hanging pretty high up on the tree. He realizes his hunger once he sees the fruit.");
-            Console.WriteLine("");
-            Console.WriteLine("What will Marvin do?");
-        }
-
-        public static void boat()
-        {
-            string choice;
-
-            Console.Clear();
-
-            Console.WriteLine("Marvin stares at the tree. It remains just a tree.");
-            Console.WriteLine("Big leaves hang from the top, creating a spot of shade.");
-            Console.WriteLine("Marv sees some fruit hanging pretty high up on the tree. He realizes his hunger once he sees the fruit.");
-            Console.WriteLine("");
-            Console.WriteLine("What will Marvin do?");
-        }
 
         public static void gameOver()
         {
             Console.Clear();
             Console.WriteLine($@"
-            Marv has died
+            Marvin has died...
 
             ▀█▀ █▀█ █▄█   ▄▀█ █▀▀ ▄▀█ █ █▄░█   ▀ ▀▄
             ░█░ █▀▄ ░█░   █▀█ █▄█ █▀█ █ █░▀█   ▄ ▄▀");
