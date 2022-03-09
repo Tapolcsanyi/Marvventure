@@ -6,7 +6,7 @@ namespace Marventure
     {
         public static void boat()
         {
-            string choice;
+            // string choice;
 
             Console.Clear();
 

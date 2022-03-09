@@ -24,7 +24,7 @@ namespace Marventure
 
         public static void heaven()
         {
-            string choice;
+            // string choice;
 
             Console.Clear();
             Console.WriteLine("Marv looks around. He sees a singular tree in front of him");
